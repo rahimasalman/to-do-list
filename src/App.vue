@@ -1,28 +1,37 @@
-<template>
+<template >
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <div class=" container  mx-auto">
+     <h1 class=" flex m-4 pr-52 text-2xl font-semibold"> Simple to do list </h1>
+     <div>
+     <create-information/></div>
+     <div class="mt-2 w-3/2 p-15 mr-16 h-auto">
+     <list-information/>
+   </div>
+</div>
   </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+
+import CreateInformation from "@/components/CreateInformation";
+import ListInformation from "@/components/ListInformation";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    ListInformation,
+    CreateInformation,
+  },
+};
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+/*.model-open{*/
+/*  overflow: hidden;*/
+/*  height: 100vh;*/
+/*}*/
 </style>
+
