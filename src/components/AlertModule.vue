@@ -1,19 +1,11 @@
 <template>
 
-  <div>
-  </div>
 </template>
 
 <script>
-
-
-
 export default {
-  name: "ListItems",
-  components: {
-
-  }
-};
+  name: "AlertModule"
+}
 </script>
 
 <style scoped>

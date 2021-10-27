@@ -1,17 +1,13 @@
-import 'devextreme/dist/css/dx.common.css';
-import 'devextreme/dist/css/dx.light.css';
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import './assets/css/main.css'
-import "tailwindcss/dist/tailwind.css";
+import Vue from 'vue';
+import App from './App.vue';
+import "./assets/main.css";
+import "./assets/css/font-awesome-4.7.0/css/font-awesome.min.css"
 
 
 
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
-    router,
     render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');
