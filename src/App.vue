@@ -1,7 +1,10 @@
 <template >
   <div id="app">
+
     <div class="container mx-auto py-10">
+
       <todos :list="orderedList" @create="create" @toggle="toggle" @remove="remove"/>
+
     </div>
 
   </div>

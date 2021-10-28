@@ -1,8 +1,15 @@
 <template>
   <div>
+
     <div class="new-item">
+
       <new-input @submit="data => $emit('create', data)"/>
+
       <ul>
+        <div class=" m-5">
+        <div class="inline-block float-left font-bold ml-2 mb-2">Adı</div>
+        <div class="inline-block float-right font-bold mr-4 mb-2">Əməli̇yyatlar</div>
+        </div>
         <list-items
             v-for="todo in list"
             :key="todo.id"

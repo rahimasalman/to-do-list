@@ -11,13 +11,13 @@
     </div>
     <div class="items-center flex">
       <span class=" " @click="$emit('toggle', test.id)">
-    <i class="fa fa-check"></i>
+    <i class="fa fa-check hover:bg-green-600"></i>
       </span>
       <span class=" " @click="$emit('edit', test.id)">
-        <i class="fa fa-pencil"></i>
+        <i class="fa fa-pencil hover:bg-blue-600"></i>
       </span>
       <span class="" @click="$emit('remove', test.id)">
-        <i class="fa fa-trash"/>
+        <i class="fa fa-trash hover:bg-red-600"/>
       </span>
     </div>
 
@@ -29,11 +29,25 @@
 export default {
   name: "ListItems",
   data() {
-return{}
+    return {
+      alertModule: false
+    }
   },
   props: {
     test: { type: Object, required: true }
+  },
+  methods: {
+    // alertModule(list = null){
+    //   if (list){
+    //     this.alertModule = 'Redaktə etmək';
+    //     this.alertModule = true;
+    //   }
+    // },
+    // close() {
+    //   this.alertModule = false;
+    // },
   }
+
 }
 </script>
 

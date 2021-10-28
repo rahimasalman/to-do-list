@@ -20,12 +20,13 @@
         border-green-500 bg-green-500
     }
     .fa-pencil {
+
         @apply
         p-3
         mr-2
         rounded-md
         text-white items-center
-        border-blue-500 bg-blue-500
+        border-blue-500 bg-blue-500;
     }
     .fa-trash {
         @apply
