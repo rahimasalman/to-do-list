@@ -37,8 +37,22 @@
         border-red-500 bg-red-500
     }
 
+   .fa-times{
+        @apply
+        p-3
+        mr-2
+        rounded-md
+        text-white items-center
+        border-yellow-500 bg-yellow-500
+    }
+
+
+
 }
 
 @layer components {
-
+    .new-input {
+        @apply w-full
+        h-14
+    }
 }

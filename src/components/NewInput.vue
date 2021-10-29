@@ -1,18 +1,21 @@
 <template>
-  <div class="flex bg-grey-light h-auto p-4 mt-4 rounded-lg text-base placeholder-gray-600 border rounded-lg focus:border-gray-50">
-    <div class="new-input flex column ">
+  <div class="flex bg-grey-light h-auto p-4 mt-4 rounded-lg text-base placeholder-gray-600 border rounded-lg focus:border-red-50">
+    <div class=" test new-input flex column ">
     <operation-button
-        id="test" name="test"  v-model="test"
+        class="mt-2"
+        id="listData" name="listData"  v-model="listData"
         type="input"
         maxlength = "70"
         autocomplete="false"
-        :required="requiredText()"
+        :required="true"
         placeholder="Daxil edin"
         @submit="submitTest"/>
+      <span class="block text-red-400 text-sm m-2">{{naming}}</span>
+
     <add-button class="add-button font-normal bg-green-500 w-auto ml-2 w-1/6  text-white hover:bg-green-600 " type="button" @click="submitTest()">
    <i class="fa fa-plus  text-white font-normal"></i>  Əlavə et
     </add-button>
-      <span style="color:red;font-size:12px">{{naming}}</span> <br>
+
     </div>
   </div>
 
@@ -29,31 +32,27 @@ export default {
   },
   data() {
     return {
-      test: "",
-
-    };
+      listData: "",
+      naming: ""
+    }
   },
 
   methods: {
 
-    submitTest() {
-      this.$emit("submit", this.test);
-      this.test = "";},
-  requiredText() {
-        if (this.test === '') {
-          this.naming = 'Name cannot be empty. Please fill out this field.'
-          return this.naming;
+    submitTest()
+      {
+        this.$emit("submit", this.listData);
+        this.listData = "";
+
+        if (this.listData ==='') {
+          this.naming = 'Please fill out this field.'
+          this.test ="test focus:border-red-600"
+          return this.naming && this.test;
         } else {
-          return this.naming = '';
+          return this.naming = "";
         }
-
-
-}
+      },
     },
-    computed: {
-
-    }
-
 
 }
 </script>

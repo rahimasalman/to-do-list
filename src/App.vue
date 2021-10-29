@@ -3,7 +3,7 @@
 
     <div class="container mx-auto py-10">
 
-      <todos :list="orderedList" @create="create" @toggle="toggle" @remove="remove"/>
+      <todos :list="orderedList" @create="create" @toggle="toggle" @remove="remove" @edit="edit"/>
 
     </div>
 
@@ -38,7 +38,7 @@ export default {
 
   computed: {
     orderedList: function() {
-      return this.list.slice(0).sort(by("foggy"));
+      return this.list.slice(0).sort(by("isDone"));
     }
   },
   methods: {
@@ -50,8 +50,8 @@ export default {
       const id = Math.random()
           .toString()
           .slice(2);
-      const text = data;
-      this.list.push({ id, text, foggy: false });
+      const name = data;
+      this.list.push({ id, name, isDone: false });
       this.save();
     },
     toggle: function(id) {
@@ -61,15 +61,13 @@ export default {
       } else {
         const list = this.list.slice(0);
         const item = list[index];
-        list[index] = { ...item, ...{ foggy: !item.foggy } };
+        list[index] = { ...item, ...{ isDone: !item.isDone } };
         this.list = list;
         this.save();
       }
     },
-    edit: (id) => {
-      this.list=this.list.findIndex(item=> item.id === id);
 
-    },
+
     remove: function(id) {
       this.list = this.list.filter(item => item.id !== id);
     }

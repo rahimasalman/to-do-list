@@ -3,20 +3,21 @@
   <div>
 
   <li
-      class="flex row items-center justify-between w-full py-1 px-4 my-1 rounded border bg-gray-100 text-gray-600"
+      class="flex row items-center justify-between w-full py-1 px-4 my-1 rounded border text-black"
   >
     <div class="items-center column">
 
-      <span :class="{'line-through': test.foggy === true}">{{ test.text }}</span>
+      <span :class="{'line-through': listData.isDone === true}">{{ listData.name }}</span>
     </div>
     <div class="items-center flex">
-      <span class=" " @click="$emit('toggle', test.id)">
-    <i class="fa fa-check hover:bg-green-600"></i>
+      <span class="" @click="toggleButton(listData.id)">
+        <i
+            :class="checkButton"></i>
       </span>
-      <span class=" " @click="$emit('edit', test.id)">
+      <span class=" " @click="$emit('edit', listData.id)">
         <i class="fa fa-pencil hover:bg-blue-600"></i>
       </span>
-      <span class="" @click="$emit('remove', test.id)">
+      <span class="" @click="$emit('remove', listData.id)">
         <i class="fa fa-trash hover:bg-red-600"/>
       </span>
     </div>
@@ -30,13 +31,31 @@ export default {
   name: "ListItems",
   data() {
     return {
-      alertModule: false
+      alertModule: true,
+      checkButton: 'fa fa-check hover:bg-green-600 ',
+      editList: null,
+
     }
   },
   props: {
-    test: { type: Object, required: true }
+    listData: {type: Object, required: true}
   },
   methods: {
+    toggleButton(id) {
+      if (this.checkButton === 'fa fa-check hover:bg-green-600 ') {
+        this.$emit('toggle', id)
+        this.checkButton = 'fa fa-times hover:bg-yellow-600'
+      } else if (this.checkButton === 'fa fa-times hover:bg-yellow-600') {
+        this.$emit('toggle', id)
+        this.checkButton = 'fa fa-check hover:bg-green-600 '
+      }else if ( this.$emit('toggle', id)) {
+        this.checkButton = 'fa fa-times hover:bg-yellow-600'
+      }
+      },
+
+
+  }
+}
     // alertModule(list = null){
     //   if (list){
     //     this.alertModule = 'Redaktə etmək';
@@ -46,9 +65,8 @@ export default {
     // close() {
     //   this.alertModule = false;
     // },
-  }
 
-}
+
 </script>
 
 <style scoped>
