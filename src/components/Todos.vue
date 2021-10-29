@@ -20,21 +20,46 @@
             :listData="todo"
         />
       </ul>
+      <div class=" text-red-600">
+        <DxPaging
+            :enabled="allowPaging"
+                  :page-size="4"
+        />
+
+        <DxPager
+            :show-page-size-selector="true"
+            :allowed-page-sizes="page.size"
+            :show-info="false"
+        />
+
+      </div>
     </div>
   </div>
 </template>
 <script>
 import NewInput from "@/components/NewInput";
 import ListItems from "@/components/ListItems";
+import {DxPager, DxPaging} from "devextreme-vue/data-grid";
 
 export default {
   name: "Todos" ,
   components: {
     ListItems,
     NewInput,
+    DxPaging,
+    DxPager
+
   },
   data(){
     return {
+      allowedPageSizes: [1, 2, 3],
+      page: {
+        limit: 10,
+        size: [2, 4, 6, 8],
+
+      },
+      allowPaging:true
+
     }
   },
   props: {

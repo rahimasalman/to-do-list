@@ -17,23 +17,31 @@
       <span class=" " @click="$emit('edit', listData.id)">
         <i class="fa fa-pencil hover:bg-blue-600"></i>
       </span>
-      <span class="" @click="$emit('remove', listData.id)">
+      <span class=""  @click="$emit('remove', listData.id)">
         <i class="fa fa-trash hover:bg-red-600"/>
       </span>
     </div>
 
   </li>
+
+
+
   </div>
 </template>
 
 <script>
+
 export default {
   name: "ListItems",
+  components:{
+
+  },
   data() {
     return {
       alertModule: true,
       checkButton: 'fa fa-check hover:bg-green-600 ',
       editList: null,
+
 
     }
   },
@@ -54,7 +62,12 @@ export default {
       },
 
 
-  }
+  },
+  // created() {
+  //   const self = this;
+  //   if (self.pageLimit) self.page.limit = self.pageLimit;
+  //   if (self.pageSize) self.page.size = self.pageSize;
+  // },
 }
     // alertModule(list = null){
     //   if (list){
